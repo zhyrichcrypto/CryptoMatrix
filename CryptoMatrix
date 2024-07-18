@@ -1,0 +1,15 @@
+# scripts/data_collection.py
+
+import requests
+import pandas as pd
+
+def fetch_crypto_data(exchange, pair):
+    # Fetch cryptocurrency data from a specific exchange API
+    url = f'https://api.{exchange}.com/api/v3/ticker/24hr?symbol={pair}'
+    response = requests.get(url)
+    data = response.json()
+    return data
+
+# Example usage:
+# crypto_data = fetch_crypto_data('binance', 'BTCUSDT')
+# print(crypto_data)
